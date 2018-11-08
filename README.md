@@ -1,6 +1,6 @@
 # Project CodeBattle
 ## Description
-CodeBattle let you compete with other people in solving coding related problems. 
+CodeBattle let's you compete with other people in solving coding related problems. 
 The game involves solving a task, for example, sorting a list. 
 The task should be solved by writing code in an IDE that is on the website. 
 When the task is resolved, the solution is submitted and the time it took is compared against the opponent's time. 
