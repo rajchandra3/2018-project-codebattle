@@ -9,14 +9,14 @@ exports.get = function(req, res){
 
   exports.post = function(req,res){
       //validation
-      UserModel.create(req.body,function(err,user_instance){
+      UserModel.create(req.body,function(err,user_instance){ //Prob should use UserModel.Save() here
           if(err){
-              console.log(err);
+              res.render('registration');
           }
           else{
             console.log("User added");
+            res.render('welcomeuser');
           }
       })
-      res.render('home');
-
+      
   }

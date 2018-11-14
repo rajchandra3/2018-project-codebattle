@@ -14,6 +14,7 @@ Todo:
     ☐ Be able to login as a registered user
     ☐ Encrypt/hash user password
     ☐ Seperate view into subfolders
+    ☐ Fix sessions to logged in users
 
 
   View:
@@ -27,6 +28,7 @@ Todo:
 
   Other:
     ☐ Add config file to use instead of hardcorded addresses, ports etc
+    ☐ Fix error handling
 
 Archive:
 ✔ Add index/home page @done(18-11-14 17:10)
