@@ -1,0 +1,26 @@
+{
+  "name": "2018-project-codebattle",
+  "version": "1.0.0",
+  "description": "CodeBattle let's you compete with other people in solving coding related problems. \r The game involves solving a task, for example, sorting a list. \r The task should be solved by writing code in an IDE that is on the website. \r When the task is resolved, the solution is submitted and the time it took is compared against the opponent's time. \r The shortest time wins the competition. If you want to play, you must register via the application. \r There will be a simple scoring system. You will be able to add friends. \r First of all, the tasks will be manually specified by us. \r As time goes by, users should be able to create tasks themselves.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuleaUniversityOfTechnology/2018-project-codebattle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuleaUniversityOfTechnology/2018-project-codebattle/issues"
+  },
+  "homepage": "https://github.com/LuleaUniversityOfTechnology/2018-project-codebattle#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.12"
+  },
+  "devDependencies": {
+    "jasmine": "^3.3.0"
+  }
+}
