@@ -11,10 +11,8 @@ app.set('view engine', 'pug');
 // Set public folder to serve static resources
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Home route
-app.get('/', function(req, res) {
-  res.render('index');
-});
+let routes = require('./routes/routes');
+app.use('/', routes);
 
 // Start server
 app.listen(8080, function() {
