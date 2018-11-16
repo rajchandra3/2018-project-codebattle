@@ -15,6 +15,7 @@ Todo:
     ☐ Encrypt/hash user password
     ☐ Seperate view into subfolders
     ☐ Fix sessions to logged in users
+    ☐ Fix so that users doesn't need use email when register
 
 
   View:
