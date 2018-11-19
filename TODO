@@ -5,14 +5,31 @@ Todo:
 
     Login/Register:
     ☐ Login view
-    ☐ Register view
-    ☐ User model @high 
+    ✔ Register view @started(18-11-14 17:35) @done(18-11-14 20:37) @lasted(3h2m26s)
+    ✔ User model @high @done(18-11-14 20:50)
     ☐ Authentication
     ☐ Write test for registration @low 
+    ✔ Set up model for users @started(18-11-14 17:21) @done(18-11-14 20:37) @lasted(3h16m21s)
+    ☐ Be able to add users to the db
+    ☐ Be able to login as a registered user
+    ☐ Encrypt/hash user password
+    ☐ Seperate view into subfolders
+    ☐ Fix sessions to logged in users
+    ☐ Fix so that users doesn't need use email when register
+
 
   View:
 
     ☐ Header
 
-Archive:
+  Design:
+    ☐ Design Home-page
+    ☐ Design Registration-page
+    ☐ Design Sign in-page
 
+  Other:
+    ☐ Add config file to use instead of hardcorded addresses, ports etc
+    ☐ Fix error handling
+
+Archive:
+✔ Add index/home page @done(18-11-14 17:10)
