@@ -1,7 +1,7 @@
 const UserModel = require('../models/user');
 
 exports.get = function(req, res){
-    res.render('login');
+    res.render('user/login');
   };
 
   exports.post = function(req,res){
@@ -11,12 +11,12 @@ exports.get = function(req, res){
       console.log(tempUser);
       if(tempUser.length!=0){
         if(tempUser[0].password == req.body.password){
-            res.render('userhome');
+            res.render('user/userhome');
             //set session
             return
         }
       }
     //Wrong password or username...    
-    res.render('login');
+    res.render('user/login');
   })
 }
