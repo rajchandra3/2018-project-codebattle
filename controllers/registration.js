@@ -12,6 +12,7 @@ exports.post = function(req,res){
   const password = req.body.password;
 
 
+
   //Validation
   req.checkBody('username', 'Username is required').notEmpty();
   //req.checkBody('username', 'Username already exists').isUsernameAvailable();
@@ -54,3 +55,4 @@ exports.post = function(req,res){
     });
   }
 }
+
