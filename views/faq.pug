@@ -1,0 +1,60 @@
+extends layout
+block content
+    .container
+        #accordionFAQ.accordion
+            .card
+                .card-header
+                    h5.mb-0
+                        button.btn.btn-link(type='button' data-toggle='collapse' data-target='#collapseWhatIsThis' aria-expanded='true' aria-controls='collapseWhatIsThis') What is this site?
+                #collapseWhatIsThis.collapse(data-parent="#accordionFAQ")
+                    .card-body
+                        p 
+                        | CodeBattle let's you compete with other people in solving coding related problems. The game is about solving a task. The task should be solved by writing code in an IDE that is on the website. When the task is resolved, the solution is submitted and the time it took is compared against the opponent's time. The shortest time wins the competition.
+            
+            .card
+                .card-header
+                    h5.mb-0
+                        button.btn.btn-link(type='button' data-toggle='collapse' data-target='#collapseWhatLanguage' aria-expanded='true' aria-controls='collapseWhatLanguage') In what language do I compete?
+                #collapseWhatLanguage.collapse(data-parent="#accordionFAQ")
+                    .card-body
+                        p 
+                        | David is the master so he decides. You are not allowed to use any frameworks, but apart from that you are very free, for example you could use your own choice of IDE and copy/paste the finished code into the CodeBattle IDE.
+            
+            .card
+                .card-header
+                    h5.mb-0
+                        button.btn.btn-link(type='button' data-toggle='collapse' data-target='#collapseExampleTasks' aria-expanded='true' aria-controls='collapseExampleTasks') What are these tasks you are talking about?
+                #collapseExampleTasks.collapse(data-parent="#accordionFAQ")
+                    .card-body
+                        p 
+                        | There are several of different tasks, some examples are:
+                        ul 
+                            li Write a function that sorts a list
+                            li Write a function that finds the n:th fibonacci number
+                            li Write a function that prints a specific pattern
+                            li Write a function that converts English to Morse code
+                            li Write a function that converts a list to a binary search tree
+                        | When you start a game you get clear instructions on what the task is, how the main function should be named and what the return format should look like. 
+            .card
+                .card-header
+                    h5.mb-0
+                        button.btn.btn-link(type='button' data-toggle='collapse' data-target='#collapseDoINeedToBeExpert' aria-expanded='true' aria-controls='collapseDoINeedToBeExpert') Do I need to be a expert to play?
+                #collapseDoINeedToBeExpert.collapse(data-parent="#accordionFAQ")
+                    .card-body
+                        p 
+                        |No! You don’t need to be an expert to play this game. However, it is recommended that you have some basic knowledge in programming. If you are completely new to programming, we recommend you a visit to 
+                        a(href='https://www.tutorialspoint.com/') tutorialspoint
+                        |. 
+
+            .card
+                .card-header
+                    h5.mb-0
+                        button.btn.btn-link(type='button' data-toggle='collapse' data-target='#collapseRegister' aria-expanded='true' aria-controls='collapseRegister') Do I need to register to play?
+                #collapseRegister.collapse( data-parent="#accordionFAQ")
+                    .card-body
+                        p 
+                        | Yes you do. You can register 
+                        a(href='/registration') here
+                        |. 
+
+            

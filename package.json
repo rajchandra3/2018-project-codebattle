@@ -18,7 +18,13 @@
   },
   "homepage": "https://github.com/LuleaUniversityOfTechnology/2018-project-codebattle#readme",
   "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.0",
+    "mongodb": "^3.1.9",
     "mongoose": "^5.3.12",
     "pug": "^2.0.3"
   },
