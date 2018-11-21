@@ -8,3 +8,5 @@ The shortest time wins the competition. If you want to play, you must register v
 There will be a simple scoring system. You will be able to add friends. 
 First of all, the tasks will be manually specified by us. 
 As time goes by, users should be able to create tasks themselves.
+
+[Live demo](http://130.240.200.87:8080/)
