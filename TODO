@@ -3,20 +3,12 @@ Todo:
 
   Users:
 
-    Login/Register:
-    ☐ Login view
-    ✔ Register view @started(18-11-14 17:35) @done(18-11-14 20:37) @lasted(3h2m26s)
-    ✔ User model @high @done(18-11-14 20:50)
     ☐ Authentication
     ☐ Write test for registration @low 
-    ✔ Set up model for users @started(18-11-14 17:21) @done(18-11-14 20:37) @lasted(3h16m21s)
-    ☐ Be able to add users to the db
-    ☐ Be able to login as a registered user
     ☐ Encrypt/hash user password
     ☐ Seperate view into subfolders
     ☐ Fix sessions to logged in users
     ☐ Fix so that users doesn't need use email when register
-
 
   View:
 
@@ -31,5 +23,15 @@ Todo:
     ☐ Add config file to use instead of hardcorded addresses, ports etc
     ☐ Fix error handling
 
+  Errorhandling:
+    ✔ Fix a 404 page @done(18-11-20 12:27)
+    
+
 Archive:
+  ✔ Login view @done(18-11-20 12:07) @project(Todo.Users)
+  ✔ Be able to add users to the db @done(18-11-20 12:07) @project(Todo.Users)
+  ✔ Be able to login as a registered user @done(18-11-20 12:07) @project(Todo.Users)
+  ✔ Register view @started(18-11-14 17:35) @done(18-11-14 20:37) @lasted(3h2m26s) @project(Todo.Users)
+  ✔ User model @high @done(18-11-14 20:50) @project(Todo.Users)
+  ✔ Set up model for users @started(18-11-14 17:21) @done(18-11-14 20:37) @lasted(3h16m21s) @project(Todo.Users)
 ✔ Add index/home page @done(18-11-14 17:10)
