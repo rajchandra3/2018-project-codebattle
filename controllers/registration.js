@@ -3,13 +3,15 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
 exports.get = function(req, res){
-  res.render('registration');
+  res.render('user/registration');
 };
 
 exports.post = function(req,res){
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
+
+
 
   //Validation
   req.checkBody('username', 'Username is required').notEmpty();
@@ -23,7 +25,7 @@ exports.post = function(req,res){
       console.log(errors[i].msg);
     }
 
-    res.render('registration', {
+    res.render('user/registration', {
       errors:errors
     });
   }
@@ -47,9 +49,10 @@ exports.post = function(req,res){
         }
         else{
           console.log("User added");
-          res.render('welcomeuser');
+          res.render('user/welcomeuser');
         }
       });
     });
   }
 }
+
