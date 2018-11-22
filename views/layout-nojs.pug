@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title CodeBattle
+    
+    //BootstrapCDN 
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    link(rel='stylesheet' href='/css/styles.css')
+    
+  body
+    nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.fixed-top
+      a.navbar-brand(href='/') CodeBattle
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#collapsibleNavbar')
+        span.navbar-toggler-icon
+      #collapsibleNavbar.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/') Home
+          li.nav-item
+            a.nav-link(href='/faq') FAQ
+          li.nav-item
+            a.nav-link(href='#') Link 3
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/login') Login
+          li.nav-item
+            a.nav-link(href='/registration') Register
+    .container-fluid
+      if errors
+        each error, i in errors
+          div(class="alert alert-danger") #{error.msg}
+      block content
+    //BootstrapCDN

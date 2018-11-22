@@ -1,0 +1,22 @@
+
+@media (min-width: 1200px) {
+    #IDEcontainer{
+        width: 1600px;
+    }
+}
+#IDEcontainer{
+    min-width:1200px;
+}
+#IDEcontainer h1,h2{
+    margin-top:20px;
+}
+
+.spacer{
+    height: 100px;
+}
+
+/*
+body{
+    background-color: black;
+}
+*/

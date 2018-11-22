@@ -18,6 +18,9 @@ app.set('view engine', 'pug');
 // Set public folder to serve static resources
 app.use(express.static(path.join(__dirname, 'public')));
 
+//To make the node_module static
+app.use('/scripts', express.static(__dirname + '/node_modules/'));
+
 //Middleware
 //Express Validator
 app.use(expressValidator());
