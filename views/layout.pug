@@ -21,10 +21,14 @@ html
           li.nav-item
             a.nav-link(href='#') Link 3
         ul.navbar-nav
-          li.nav-item
-            a.nav-link(href='/login') Login
-          li.nav-item
-            a.nav-link(href='/registration') Register
+          if user
+            li.nav-item
+              a.nav-link(href='/logout') Logout
+          else
+            li.nav-item
+              a.nav-link(href='/login') Login
+            li.nav-item
+              a.nav-link(href='/registration') Register
     .container-fluid
       if errors
         each error, i in errors

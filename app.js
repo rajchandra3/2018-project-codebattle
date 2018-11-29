@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressValidator = require('express-validator');
+var session = require('express-session');
 
 // Init app
 const app = express();
@@ -18,9 +19,11 @@ app.set('view engine', 'pug');
 // Set public folder to serve static resources
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Middleware
 //Express Validator
 app.use(expressValidator());
+
+//Set session
+app.use(session({secret: "Totaly secret key"}));
 
 //Set router
 let routes = require('./routes/routes');
