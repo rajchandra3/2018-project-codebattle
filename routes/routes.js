@@ -24,8 +24,10 @@ router.get('/logout', ensureLoggedIn(), user_controller.logout);
 
 //Registration route
 
+
 router.get('/registration', ensureLoggedOut(), registration_controller.get);
 router.post('/registration', ensureLoggedOut(), registration_controller.post);
+
 
 
 //For develop only, please remove 
