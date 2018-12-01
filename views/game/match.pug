@@ -1,0 +1,31 @@
+extends ../layout-nojs
+block content
+    link(rel='stylesheet' href='/css/IDE.css')
+    #IDEcontainer.container
+        .row
+            .col-7
+                .row
+                    #container(style='width:100%;height:700px;border:1px solid grey')
+                    script(src="/scripts/monaco-editor/min/vs/loader.js")
+                    script(src="/js/IDE.js")
+
+            .col-4.offset
+                .row.border-top
+                    .col
+                        h1.text-center Task
+                .row.border-bottom
+                    .col
+                        p.text-left #{task_description} 
+                .row
+                    .col
+                        h2.text-center Help
+                .row.border-bottom
+                    .col
+                        p.text-left Return your answer in the #[strong result()] function. When you feel happy with your solution press the green #[em submit solution] button bellow. If you want to abort this game press the red #[em abort game] button bellow. Note that by aborting the game you are losing the game and give your opponent the win.   
+                .row.spacer
+                .row.justify-content-end
+                    .col
+                        button.btn.btn-success.btn-block(type="button") Submit solution
+                    .col
+                        button.btn.btn-danger.btn-block(type="button") Abort game
+                    

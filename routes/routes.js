@@ -4,6 +4,7 @@ const router = express.Router();
 const home_controller = require('../controllers/home');
 const registration_controller = require('../controllers/registration');
 const user_controller = require('../controllers/user');
+const game_controller = require('../controllers/game');
 
 //Pre route actions
 router.get('*', function(req, res, next){
@@ -22,9 +23,15 @@ router.post('/login', ensureLoggedOut(), user_controller.post);
 router.get('/logout', ensureLoggedIn(), user_controller.logout);
 
 //Registration route
+
+
 router.get('/registration', ensureLoggedOut(), registration_controller.get);
 router.post('/registration', ensureLoggedOut(), registration_controller.post);
 
+
+
+//For develop only, please remove 
+router.get("/game",ensureLoggedIn(),game_controller.get);
 router.get('*', function(req,send){
     send.status(404)
     send.render('statuscodes/404');
