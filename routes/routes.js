@@ -5,7 +5,6 @@ const home_controller = require('../controllers/home');
 const registration_controller = require('../controllers/registration');
 const user_controller = require('../controllers/user');
 const game_controller = require('../controllers/game');
-const code_controller = require('../controllers/code_env');
 
 //Pre route actions
 router.get('*', function(req, res, next){
@@ -32,10 +31,9 @@ router.post('/registration', ensureLoggedOut(), registration_controller.post);
 
 
 //For develop only, please remove 
-router.get("/game",ensureLoggedIn(),game_controller.get);
+router.get("/game",game_controller.get);
+router.post("/sendcode",game_controller.post);
 
-//*** HERE pls */
-router.get("/send",code_controller.post);
 
 router.get('*', function(req,send){
     send.status(404)
