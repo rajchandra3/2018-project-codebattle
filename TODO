@@ -10,6 +10,7 @@ Todo:
     ☐ Store a toplist of the best solved tasks (in time, in least characters etc)
     ☐ Set a timer on each game @low 
     ☐ Fix so that a user can abort a game by pressing the abort button. 
+    ☐ Fix so that the game page can use the same layout as all other pages, the problem right now is that both layout and the monaco-editor node_module uses the bootstrap javascript file.
 
   Users:
 

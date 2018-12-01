@@ -31,7 +31,7 @@ router.post('/registration', ensureLoggedOut(), registration_controller.post);
 
 
 //For develop only, please remove 
-router.get("/game",game_controller.get);
+router.get("/game",ensureLoggedIn(),game_controller.get);
 router.get('*', function(req,send){
     send.status(404)
     send.render('statuscodes/404');
