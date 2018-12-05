@@ -1,0 +1,5 @@
+extends ../layout
+block content
+    h1 Waiting for player to join
+    p There are currently #{inqueue} people in queue.
+    script setTimeout(function(){ location.reload()}, 2000)

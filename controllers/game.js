@@ -1,13 +1,16 @@
 const request = require('request');
 const Task = require('../models/task');
+const Match = require('../models/match');
 
 exports.get = function(req, res){
-  Task.findOne({}, function (err, task){ //This should be randomized
-    if(!task){
-      console.log("error");
+  //Check if the user is in a match, if so give the description
+  Match.findOne({$or: [{player1: req.session.user._id},{player2: req.session.user._id}]}, function (err, match){ //This should be randomized
+    if(!match){
+      res.render("/home");
+      console.log("Error could not find match for that player");
     }
     else{
-      res.render('game/match',{task_description: task.description});
+      res.render('game/match',{task_description: "ofan"});
     }
   });
   };
