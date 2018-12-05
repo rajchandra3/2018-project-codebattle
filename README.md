@@ -42,18 +42,14 @@ Reboot the host.
 
 ## Run the server
 
-To run the server just type 
+First build and run the docker with the following command:
+```
+npm run docker-build-run
+```
+
+Then run the server just type 
 ```
 nodemon
 ```
 
-Because a docker container is used to run the (possibly unsafe) code from the user, the docker must be started. To build the Docker image:
-```
-cd code_environment/
-docker build -t codeenv .
-```
 
-To run the app that evaluates the javascript code type:
-```
-docker run -d -p 4000:80 codeenv
-```

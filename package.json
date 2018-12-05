@@ -4,8 +4,9 @@
   "description": "CodeBattle let's you compete with other people in solving coding related problems. \r The game involves solving a task, for example, sorting a list. \r The task should be solved by writing code in an IDE that is on the website. \r When the task is resolved, the solution is submitted and the time it took is compared against the opponent's time. \r The shortest time wins the competition. If you want to play, you must register via the application. \r There will be a simple scoring system. You will be able to add friends. \r First of all, the tasks will be manually specified by us. \r As time goes by, users should be able to create tasks themselves.",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker-build-run": "docker build -t codeenv code_environment/. && docker run -d -p 4000:80 codeenv"
   },
   "repository": {
     "type": "git",
