@@ -5,7 +5,7 @@ const home_controller = require('../controllers/home');
 const registration_controller = require('../controllers/registration');
 const user_controller = require('../controllers/user');
 const game_controller = require('../controllers/game');
-
+const matchmaking_controller = require('../controllers/matchmaking');
 //Pre route actions
 router.get('*', function(req, res, next){
     res.locals.user = req.session.user || null;
@@ -29,6 +29,8 @@ router.get('/registration', ensureLoggedOut(), registration_controller.get);
 router.post('/registration', ensureLoggedOut(), registration_controller.post);
 
 
+//Game logic
+router.get('/search_game', ensureLoggedIn(), matchmaking_controller.get);
 
 //For develop only, please remove 
 router.get("/game",game_controller.get);
