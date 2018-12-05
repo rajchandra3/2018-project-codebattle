@@ -3,7 +3,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressValidator = require('express-validator');
-var session = require('express-session');
+const session = require('express-session');
+const back = require('express-back');
+
 
 // Init app
 const app = express();
@@ -28,6 +30,9 @@ app.use(expressValidator());
 
 //Set session
 app.use(session({secret: "Totaly secret key"}));
+
+//Express back middleware
+app.use(back());
 
 //Set router
 let routes = require('./routes/routes');

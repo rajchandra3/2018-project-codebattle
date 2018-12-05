@@ -23,7 +23,7 @@ exports.post = function(req,res){
         if(err) throw err;
         if(isMatch){
           req.session.user = user;
-          res.render('user/userhome');
+          res.redirect('/');
         }
         else {
           //Wrong password or username...
@@ -38,5 +38,5 @@ exports.logout = function(req, res){
   req.session.destroy(function(err) {
     if(err) throw err;
   });
-  res.redirect('/');
+  res.back();
 };

@@ -1,15 +1,22 @@
 extends ../layout
 
 block content
-  form#registration-form(action='/registration' method='POST')
-    .form-group
-      <label for="regUsername">Username</label>
-      <input type="text" class="form-control" id="regUsername" name="username" placeholder="Enter Username">
-    .form-group
-      <label for="regEmail">Email address</label>
-      <input type="email" class="form-control" id="regEmail" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-    .form-group
-      <label for="regPassword">Password</label>
-      <input type="password" class="form-control" id="regPassword" name="password"  placeholder="Password">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small>
-    <button type="submit" class="btn btn-primary">Submit</button>
+  .conatiner.d-flex.align-content-center.center1
+    .col
+      h1.text-center Register
+      .container.row
+        form.col#registration-form(action='/registration' method='POST')
+          .form-group
+            label(for='regUsername') Username
+            input#regUsername.form-control(type='text', name='username', placeholder='Enter Username')
+          .form-group
+            label(for='regEmail') Email address
+            input#regEmail.form-control(type='email', name='email', aria-describedby='emailHelp', placeholder='Enter email')
+          .form-group
+            label(for='regPassword') Password
+            input#regPassword.form-control(type='password', name='password', placeholder='Password')
+          .form-group
+            label(for='regPassword2') Confirm Password
+            input#regPassword2.form-control(type='password', name='password2', placeholder='Confirm Password')
+            small#emailHelp.form-text.text-muted We&apos;ll never share your data with anyone else.
+          button.btn.btn-primary(type='submit') Submit
