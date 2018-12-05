@@ -31,9 +31,7 @@ router.post('/registration', ensureLoggedOut(), registration_controller.post);
 
 //Game logic
 router.get('/search_game', ensureLoggedIn(), matchmaking_controller.get);
-
-//For develop only, please remove 
-router.get("/game",game_controller.get);
+router.get("/game",ensureLoggedIn(), game_controller.get);
 router.post("/sendcode",game_controller.post);
 
 

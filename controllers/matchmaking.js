@@ -22,7 +22,7 @@ exports.get = function(req, res){
                     player1: inqueue[0],
                     player2: inqueue[1] ,
                     taskID: task._id,
-                    time: 0
+                    active: true
                 });
                 newMatch.save(function(err){
                     if(err){
