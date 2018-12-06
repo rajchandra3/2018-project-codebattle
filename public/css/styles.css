@@ -4,3 +4,14 @@ body {
 #registration-form{
     width:900px;
 }
+
+.container-login{
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-error{
+    position: fixed;
+    z-index: 9999;
+}

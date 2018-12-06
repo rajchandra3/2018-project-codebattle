@@ -18,6 +18,7 @@ exports.post = function(req,res){
   //req.checkBody('username', 'Username already exists').isUsernameAvailable();
   if(email) req.checkBody('email', 'Email is not valid').isEmail();
   req.checkBody('password', 'Password is required').notEmpty();
+  if(password) req.checkBody('password', 'Passwords doesn\'t match').equals(req.body.password2);
   let errors = req.validationErrors();
 
   if(errors){

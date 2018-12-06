@@ -29,10 +29,13 @@ html
               a.nav-link(href='/login') Login
             li.nav-item
               a.nav-link(href='/registration') Register
-    .container-fluid
-      if errors
-        each error, i in errors
-          div(class="alert alert-danger") #{error.msg}
+    .container
+      .container
+        if errors
+          each error, i in errors
+            div.text-center(class="alert alert-danger alert-dismissible")
+              button.close(type='button', data-dismiss='alert') &times;
+              div #{error.msg}
       block content
     //BootstrapCDN
     script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
