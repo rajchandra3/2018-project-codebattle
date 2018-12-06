@@ -3,6 +3,10 @@ require.config({ paths: { 'vs': '/scripts/monaco-editor/min/vs' }});
 		var editor = monaco.editor.create(document.getElementById('container'), {
 			value: [
 				'// Make sure you put your answer is returned! ',
+				'function answer(n){',
+				'\t',
+				'\t return youranswer',
+				'}',
 				''
 			].join('\n'),
             language: 'javascript',

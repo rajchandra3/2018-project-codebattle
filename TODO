@@ -4,12 +4,27 @@ Todo:
   Game:
     ☐ Store the code from the IDE in the database with the respective user and task.
       To store the code use the getValue() function
-    ☐ Set up a matchmaking system which pairs two users into a game
+    ✔ Set up a matchmaking system which pairs two users into a game @done(18-12-06 16:52)
     ☐ Store a toplist of the best solved tasks (in time, in least characters etc)
-    ☐ Set a timer on each game @low 
+    ☐ Set a timer on each game, which stops the game after some time @low 
     ☐ Fix so that a user can abort a game by pressing the abort button. 
     ☐ Fix so that the game page can use the same layout as all other pages, the problem right now is that both layout and the monaco-editor node_module uses the bootstrap javascript file.
     ☐ Auto run the docker program that runs the insecure javascript code from users
+    ☐ Make a user page where user can find their previous matches
+    ☐ Notify the user when both the players have finished their game
+    ☐ Make a top page that display the top list of tasks
+    ☐ Make a js file that has some task that always should be stored in the db
+    ☐ Let the user rejoin the game if the game is not finished. This should be the same button as when the user wants to join the queue.
+    ✔ When the user submits the code must be evalutated and checked if the answer is correct. Then it should be stored in the match db, Both the solution and answer @started(18-12-06 16:59) @done(18-12-06 20:35) @lasted(3h36m59s)
+    ☐ Make sure that the docker container has the right privilages.
+    ☐ Make sure that the docker container always is up and running, if it crash it should be restarted
+    ☐ Validate the users code solution before it is stored in the database
+    ✔ Make so that whenever a code that is evaluated to some failure just print the problem and don't return the whole website. @started(18-12-06 18:14) @done(18-12-06 18:23) @lasted(9m45s)
+    ☐ Reformat game.js to make it readable 😫
+    ✔ Save the time the user submited the code in the db @started(18-12-06 18:25) @done(18-12-06 18:29) @lasted(4m38s)
+    ☐ Randomize the input to each task and check whether the answer is correct or not depending on the input. 
+    ☐ Make the template function in the IDE static:
+      the function answer(n){ 
 
   Users:
 
