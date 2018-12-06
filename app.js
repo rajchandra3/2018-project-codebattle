@@ -29,7 +29,11 @@ app.use('/scripts', express.static(__dirname + '/node_modules/'));
 app.use(expressValidator());
 
 //Set session
-app.use(session({secret: "Totaly secret key"}));
+app.use(session({
+  secret: "Totaly secret key",
+  resave: false,
+  saveUninitialized: false
+}));
 
 //Express back middleware
 app.use(back());
