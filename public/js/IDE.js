@@ -2,12 +2,19 @@ require.config({ paths: { 'vs': '/scripts/monaco-editor/min/vs' }});
 	require(['vs/editor/editor.main'], function() {
 		var editor = monaco.editor.create(document.getElementById('container'), {
 			value: [
-				'function result() {',
-                '\t ',
-                '\t return answer //put your result here',
-				'}'
+				'// Make sure you put your answer is returned! ',
+				''
 			].join('\n'),
             language: 'javascript',
             theme: "vs-dark"
 		});
+
+		function saveI(){
+			document.getElementById("hiddencodeinput").value = editor.getValue();
+			document.getElementById("sendcodeform").submit(); 
+		}
+		document.getElementById('submit_solution').onclick = saveI;
+		
+
 	});
+

@@ -4,20 +4,18 @@ Todo:
   Game:
     ☐ Store the code from the IDE in the database with the respective user and task.
       To store the code use the getValue() function
-    ✔ Make schema for tasks!!!!! Make some tasks that is stored in the database (may be with different difficulty), should be loaded under the TASK header, remeber to set a ID to all tasks so that tasks can be paird with games @started(18-11-23 18:40) @done(18-11-23 19:55) @lasted(1h15m48s)
-    ☐ Examine how to use docker to only run a piece of code and have the result
     ☐ Set up a matchmaking system which pairs two users into a game
     ☐ Store a toplist of the best solved tasks (in time, in least characters etc)
     ☐ Set a timer on each game @low 
     ☐ Fix so that a user can abort a game by pressing the abort button. 
     ☐ Fix so that the game page can use the same layout as all other pages, the problem right now is that both layout and the monaco-editor node_module uses the bootstrap javascript file.
+    ☐ Auto run the docker program that runs the insecure javascript code from users
 
   Users:
 
     ☐ Authentication
     ☐ Write test for registration @low 
     ☐ Fix sessions to logged in users
-
 
   View:
 
@@ -34,6 +32,10 @@ Todo:
     ☐ Fix error handling
 
 Archive:
+  ✔ Figure out how the run the code from the docker nodejs server @started(18-12-01 15:00) @done(18-12-01 19:17) @project(Todo.Game)
+  ✔ Make schema for tasks!!!!! Make some tasks that is stored in the database (may be with different difficulty), should be loaded under the TASK header, remeber to set a ID to all tasks so that tasks can be paird with games @started(18-11-23 18:40) @done(18-11-23 19:55) @lasted(1h15m48s) @project(Todo.Game)
+  ✔ Examine how to use docker to only run a piece of code and have the result @started(18-12-01 14:40) @done(18-12-01 18:09)  @project(Todo.Game)
+    Just use eval for now
   ✔ Add a page for a actual game, with some IDE and design with task, submit and help @started(18-11-22 19:10) @done(18-11-22 23:09) @lasted(3h59m25s) @project(Todo.Game)
   ✔ Encrypt/hash user password @done(18-11-22 19:09) @project(Todo.Users)
   ✔ Seperate view into subfolders @done(18-11-22 19:09) @project(Todo.Users)
@@ -46,4 +48,4 @@ Archive:
   ✔ Register view @started(18-11-14 17:35) @done(18-11-14 20:37) @lasted(3h2m26s) @project(Todo.Users)
   ✔ User model @high @done(18-11-14 20:50) @project(Todo.Users)
   ✔ Set up model for users @started(18-11-14 17:21) @done(18-11-14 20:37) @lasted(3h16m21s) @project(Todo.Users)
-✔ Add index/home page @done(18-11-14 17:10)
+  ✔ Add index/home page @done(18-11-14 17:10)

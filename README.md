@@ -9,4 +9,47 @@ There will be a simple scoring system. You will be able to add friends.
 First of all, the tasks will be manually specified by us. 
 As time goes by, users should be able to create tasks themselves.
 
-[Live demo](http://130.240.200.87:8080/)
+## Live demo
+A live demo of the project can be found [here](http://130.240.200.87:8080/)
+
+
+## Dependencies
+Install nodejs 
+```
+sudo apt install nodejs
+```
+
+Install npm 
+```
+sudo apt install npm
+```
+Install dependencies 
+```
+cd 2018-project-codebattle/
+npm install
+```
+
+Install docker 
+```
+sudo apt install docker.io
+```
+
+Add the user to the docker group 
+```
+sudo usermod -a -G docker $USER
+```
+Reboot the host.
+
+## Run the server
+
+First build and run the docker with the following command:
+```
+npm run docker-build-run
+```
+
+Then run the server just type 
+```
+nodemon
+```
+
+
