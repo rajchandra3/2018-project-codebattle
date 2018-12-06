@@ -12,11 +12,13 @@ exports.post = function(req,res){
   const password = req.body.password;
   //TODO validation
 
-  //Error handling...
+  let errors = [];
   User.findOne({username: username}, function (err, user){
     if(!user){
-      //Username doesn't exist
-      res.render('user/login');
+      errors.push({param: '', msg: 'Invalid username or password', value: ''});
+      res.render('user/login', {
+        errors: errors
+      });
     }
     else{
       bcrypt.compare(password, user.password, function(err, isMatch){
@@ -26,8 +28,10 @@ exports.post = function(req,res){
           res.redirect('/');
         }
         else {
-          //Wrong password or username...
-          res.render('user/login');
+          errors.push({param: '', msg: 'Invalid username or password', value: ''});
+          res.render('user/login', {
+            errors: errors
+          });
         }
       });
     }
