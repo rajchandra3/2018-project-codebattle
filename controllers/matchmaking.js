@@ -12,26 +12,33 @@ exports.get = function(req, res){
         match = true;
         res.redirect('/game');
         // Randomize this to get a random task:
-        Task.findOne({}, function (err, task){
-            if(!task){
-              console.log("Could not load any task!!!");
-            }
-            else{
-                // Create a new Match model with player1 and the task  
-                var newMatch = new Match({
-                    player1: inqueue[0],
-                    player2: inqueue[1] ,
-                    taskID: task._id,
-                    active: true
-                });
-                newMatch.save(function(err){
-                    if(err){
-                      console.log(err);
-                      return;
-                    }
-                  });
-            }
-        }); 
+
+        Task.count().exec(function (err, count){ //Count how many task entries there is
+            var random = Math.floor(Math.random() * count)
+            Task.findOne({}, function (err, task){
+                if(!task){
+                  console.log("Could not load any task!!!");
+                }
+                else{
+                    // Create a new Match model with player1 and the task  
+                    var newMatch = new Match({
+                        player1: inqueue[0],
+                        player2: inqueue[1] ,
+                        taskID: task._id,
+                        active: true
+                    });
+                    newMatch.save(function(err){
+                        if(err){
+                          console.log(err);
+                          return;
+                        }
+                      });
+                }
+            }).skip(random); 
+
+        })
+
+
     }
     else if(inqueue.length >=2 && inqueue[1] == req.session.user._id && match == true ){
         var player1 = inqueue.shift(1);
@@ -42,8 +49,5 @@ exports.get = function(req, res){
     else{
         res.render('game/waitingforplayer', {inqueue: inqueue.length})
     }
-    
-
-
 
   };

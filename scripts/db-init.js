@@ -26,10 +26,10 @@ newTask.save(function(err){
 
 var newTask = new Task({
     title: "Password validator",
-    description: "Make a function that returns true if a password is okey and false if the password is not okey. A password is okey iff: it has more than 8 char, at least one numeric digit, at least one alphabetic, doesn't contain any spaces or slash (/), it has at least one Capital letter. ",
+    description: "Make a function that returns true if a password is okey and false if the password is not okey. A password is okey iff: it has more than 8 char, at least one numeric digit, at least one alphabetic, doesn't contain any special characters, it has at least one Capital letter. ",
     difficulty: "easy",
-    input: ["'acde'","D12ef#as2vc","D12ef#as 2vc", "DSlksd32asdöl"],
-    output: ["false","true","false","true"]
+    input: ["'acde'","'D12efas2vc'","'dasdfas2dasasd'", "'DSlksd32asdöl'"],
+    output: [false,true,false,true]
 });
 
 newTask.save(function(err){

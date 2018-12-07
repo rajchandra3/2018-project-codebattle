@@ -8,8 +8,8 @@ var TaskModelSchema = new Schema({
     description: {type: String},
     difficulty: {type: String},
     time: {type: Number, default: 0},
-    input: [String],
-    output: [String]
+    input: [],
+    output: []
 })
 
 module.exports = mongoose.model('Task',TaskModelSchema);
