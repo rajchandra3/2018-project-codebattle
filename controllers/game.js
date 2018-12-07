@@ -7,7 +7,6 @@ exports.get = function(req, res){
   Match.findOne({active: true , $or: [{player1: req.session.user._id},{player2: req.session.user._id}]}, function (err, match){ //This should be randomized
     if(!match || match.active == false){
       res.render("home");
-      console.log("Error could not find match for that player");
     }
     else{
       res.render('game/match',{task_description: match.taskID.description});
