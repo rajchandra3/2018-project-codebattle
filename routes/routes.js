@@ -21,6 +21,7 @@ router.get('/faq',home_controller.faq)
 router.get('/login', ensureLoggedOut(), user_controller.get);
 router.post('/login', ensureLoggedOut(), user_controller.post);
 router.get('/logout', ensureLoggedIn(), user_controller.logout);
+router.get('/user/home', ensureLoggedIn(), user_controller.history);
 
 //Registration route
 
@@ -32,7 +33,7 @@ router.post('/registration', ensureLoggedOut(), registration_controller.post);
 //Game logic
 router.get('/search_game', ensureLoggedIn(), matchmaking_controller.get);
 router.get("/game",ensureLoggedIn(), game_controller.get);
-router.post("/sendcode",game_controller.post);
+router.post("/sendcode",ensureLoggedIn(), game_controller.post);
 
 
 router.get('*', function(req,send){

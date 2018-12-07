@@ -12,7 +12,11 @@ var MatchModelSchema = new Schema({
     player2time: {type: Number},
     player1solution: {type: String},
     player2solution: {type: String},
-    active: {type: Boolean, default: false}
+    active: {type: Boolean, default: false},
+    player1correct: {type: Boolean}, //True if the solution is correct
+    player2correct: {type: Boolean},
+    winner: {type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null}
+
 })
 
 module.exports = mongoose.model('Match',MatchModelSchema);
