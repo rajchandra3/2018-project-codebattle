@@ -29,9 +29,6 @@ exports.get = function(req, res){
                       console.log(err);
                       return;
                     }
-                    else{
-                      console.log("Match is added and started");
-                    }
                   });
             }
         }); 

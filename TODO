@@ -2,7 +2,7 @@
 Todo:
 
   Game:
-    ☐ Store the code from the IDE in the database with the respective user and task.
+    ✔ Store the code from the IDE in the database with the respective user and task. @done(18-12-06 21:08)
       To store the code use the getValue() function
     ✔ Set up a matchmaking system which pairs two users into a game @done(18-12-06 16:52)
     ☐ Store a toplist of the best solved tasks (in time, in least characters etc)
@@ -10,7 +10,7 @@ Todo:
     ☐ Fix so that a user can abort a game by pressing the abort button. 
     ☐ Fix so that the game page can use the same layout as all other pages, the problem right now is that both layout and the monaco-editor node_module uses the bootstrap javascript file.
     ☐ Auto run the docker program that runs the insecure javascript code from users
-    ☐ Make a user page where user can find their previous matches
+    ☐ Make a user page where user can find their previous matches @started(18-12-07 11:13)
     ☐ Notify the user when both the players have finished their game
     ☐ Make a top page that display the top list of tasks
     ☐ Make a js file that has some task that always should be stored in the db
@@ -25,6 +25,8 @@ Todo:
     ☐ Randomize the input to each task and check whether the answer is correct or not depending on the input. 
     ☐ Make the template function in the IDE static:
       the function answer(n){ 
+    ☐ Rewrite the matchmaking.js so it checks if the user is in a match or not already.
+    ☐ Make it possible to abort matchqueue.
 
   Users:
 
@@ -43,7 +45,7 @@ Todo:
     ☐ Design Sign in-page
 
   Other:
-    ☐ Add config file to use instead of hardcorded addresses, ports etc
+    ☐ Add envelope config file to use instead of hardcorded addresses, ports, local docker machine ip, etc
     ☐ Fix error handling
 
 Archive:

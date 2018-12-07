@@ -40,21 +40,36 @@ exports.get = function(req, res){
           console.log(body);
           if(match.player1._id == req.session.user._id){ //If the sess player is player 1
             match.player1solution = jscode; //This probably need some validation
-            match.player1time = time;
+            match.player1time = time - match.starttime;
             match.player1correct = body.ok;
 
-            //Deactivate the game if player 2 has finished
+            //Deactivate the game if player 2 has finished check who is the winner
             if(match.player2solution != undefined){
               match.active = false;
             }
           }else{ //The sess player is player 2
             match.player2solution = jscode;
-            match.player2time = time;
+            match.player2time = time - match.starttime;
             match.player2correct = body.ok;
 
-            //Deactivate the game if player 1 has finished
+            //Deactivate the game if player 1 has finished set the winner
             if(match.player1solution != undefined){
               match.active = false;
+            }
+          }
+          //check who win
+          
+          if(!match.active){
+            if(match.player2correct && match.player1correct){
+              if(match.player2time<match.player1time){
+                match.winner = match.player2;
+              }else{
+                match.winner = match.player1;
+              }
+            }else if(!match.player2correct && match.player1correct){
+              match.winner = match.player1;
+            }else if(match.player2correct && !match.player1correct){
+              match.winner = match.player2;
             }
           }
           match.save(function(err){

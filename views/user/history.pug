@@ -1,0 +1,66 @@
+extends ../layout
+
+block content
+    .container
+        h1 Match History
+        p wins: #{wins} lost: #{lost}
+        each match,index in matchhistory
+            if index%2==0
+                <div class="row" style="margin-top:20px;font-size:20px">
+                    .col-6
+                        .card
+                            .card-header 
+                                h4 Task title
+                            .card-body
+                                p.card-text 
+                                    img(src="../images/trophy.png")
+                                    span(style="font-size:25px;padding-left:10px") #{match.winner} 
+                            ul.list-group.list-group-flush
+                                li.list-group-item 
+                                    | Completion: 
+                                    if match.user_correct
+                                        img(src="../images/check.png" style="padding-left:10px")
+                                    else
+                                        img(src="../images/mark.png" style="padding-left:10px")
+                                    br
+                                    | Your time: #{match.user_time} 
+                                li.list-group-item 
+                                    | Opponent: #{match.opponent} 
+                                    br
+                                    | Completion: 
+                                    if match.opponent_correct
+                                        img(src="../images/check.png" style="padding-left:10px")
+                                    else
+                                        img(src="../images/mark.png" style="padding-left:10px")
+                                    br
+                                    | Opponents time: #{match.opponent_time} 
+            else
+                    .col-6
+                        .card
+                            .card-header 
+                                h4 Task title
+                            .card-body
+                                p.card-text 
+                                    img(src="../images/trophy.png")
+                                    span(style="font-size:25px;padding-left:10px") #{match.winner} 
+                            ul.list-group.list-group-flush
+                                li.list-group-item 
+                                    | Completion:
+                                    if match.user_correct
+                                        img(src="../images/check.png" style="padding-left:10px")
+                                    else
+                                        img(src="../images/mark.png" style="padding-left:10px") 
+                                    br
+                                    | Your time: #{match.user_time} 
+                                li.list-group-item 
+                                    | Opponent: #{match.opponent} 
+                                    br
+                                    | Completion: 
+                                    if match.opponent_correct
+                                        img(src="../images/check.png" style="padding-left:10px")
+                                    else
+                                        img(src="../images/mark.png" style="padding-left:10px")
+                                    br
+                                    | Opponents time: #{match.opponent_time}
+                                    </div>
+                                    
