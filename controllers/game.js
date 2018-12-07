@@ -37,7 +37,6 @@ exports.get = function(req, res){
           output: match.taskID.output
         }
       }, function (error, response, body){ // message holds any error messages and ok is true if the code was ok or false if it didn't pass
-          console.log(body);
           if(match.player1._id == req.session.user._id){ //If the sess player is player 1
             match.player1solution = jscode; //This probably need some validation
             match.player1time = time - match.starttime;

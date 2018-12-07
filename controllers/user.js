@@ -47,12 +47,16 @@ exports.logout = function(req, res){
 };
 
 
+
+
+
 exports.history = function(req, res){
   Match.
     find().
     populate('player1').
     populate('player2').
     populate('winner').
+    populate('taskID').
     or([{'player1': req.session.user._id}, {'player2': req.session.user._id}]).
     where('active').equals(false).
     sort('-starttime').
@@ -60,8 +64,8 @@ exports.history = function(req, res){
       var wins = 0;
       var loss = 0;
       var preview = []
-      
       for(var i = 0; i<matches.length;i++){
+        var taskTitle = matches[i].taskID.title;
         var gamewinner = "";
         if(matches[i].winner == null){
           gamewinner = "no one"
@@ -78,21 +82,23 @@ exports.history = function(req, res){
         if(matches[i].player1._id == req.session.user._id){ //If the user is user1
 
              preview.push({
+              title: taskTitle,
               winner: gamewinner,
-              user_time: matches[i].player1time.toString(),
+              user_time: new Date(matches[i].player1time).toISOString().slice(11, -1),
               user_correct: matches[i].player1correct,
               opponent: matches[i].player2.username,
-              opponent_time: matches[i].player2time.toString(),
+              opponent_time: new Date(matches[i].player2time).toISOString().slice(11, -1),
               opponent_correct: matches[i].player2correct
             });
         }
         else if(matches[i].player2._id == req.session.user._id){
            preview.push({
+            title: taskTitle,
             winner: gamewinner,
-            user_time: matches[i].player2time.toString(),
+            user_time: new Date(matches[i].player2time).toISOString().slice(11, -1),
             user_correct: matches[i].player2correct,
             opponent: matches[i].player1.username,
-            opponent_time: matches[i].player1time.toString(),
+            opponent_time: new Date(matches[i].player1time).toISOString().slice(11, -1),
             opponent_correct: matches[i].player1correct
           });
         }
