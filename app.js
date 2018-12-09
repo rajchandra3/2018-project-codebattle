@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressValidator = require('express-validator');
 const session = require('express-session');
-const back = require('express-back');
+
 
 
 // Init app
@@ -35,8 +35,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-//Express back middleware
-app.use(back());
 
 //Set router
 let routes = require('./routes/routes');

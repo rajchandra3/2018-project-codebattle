@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt');
-
 const User = require('../models/user');
 const Match = require('../models/match');
 
@@ -43,7 +42,7 @@ exports.logout = function(req, res){
   req.session.destroy(function(err) {
     if(err) throw err;
   });
-  res.back();
+  res.redirect('back');
 };
 
 

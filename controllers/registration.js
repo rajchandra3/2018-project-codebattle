@@ -27,7 +27,7 @@ exports.post = function(req,res){
       errors.push({param: '', msg: 'Username already exists', value: ''});
     }
     //Invalid input
-    if(errors){
+    if(errors.length > 0){
       for (var i in errors){
         console.log(errors[i].msg);
       }
