@@ -23,6 +23,8 @@ html
         ul.navbar-nav
           if user
             li.nav-item
+              a.nav-link(href='/user/activegames') Active Games
+            li.nav-item
               a.nav-link(href='/user/home') History
             li.nav-item
               a.nav-link(href='/logout') Logout
@@ -38,6 +40,11 @@ html
             div.text-center(class="alert alert-danger alert-dismissible")
               button.close(type='button', data-dismiss='alert') &times;
               div #{error.msg}
+        if infos
+          each info, i in infos
+            div.text-center(class="alert alert-info alert-dismissible")
+              button.close(type='button', data-dismiss='alert') &times;
+              div #{info.msg}
       block content
     //BootstrapCDN
     script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')

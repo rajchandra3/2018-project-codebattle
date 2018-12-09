@@ -1,57 +1,50 @@
 const Match = require('../models/match');
 const Task = require('../models/task');
 
-var inqueue = [];
+var globalqueue = [];
 var match = false;
 exports.get = function(req, res){
-    Match.count( { $or:[{ player1: req.session.user._id}, {player2: req.session.user._id }], active:true}, function(err, count){
-        if(count>0){
-            res.redirect('/game');
-        }else{
-            if(!inqueue.includes(req.session.user._id)){
-                inqueue.push(req.session.user._id);
-            }
-            if(inqueue.length >= 2 && inqueue[0] == req.session.user._id && match == false){ //If first in queue
-                match = true;
-                res.redirect('/game');
-        
-                Task.count().exec(function (err, count){ //Count how many task entries there is
-                    var random = Math.floor(Math.random() * count)
-                    Task.findOne({}, function (err, task){
-                        if(!task){
-                          console.log("Could not load any task!!!");
-                        }
-                        else{
-                            // Create a new Match model with player1 and the task  
-                            var newMatch = new Match({
-                                player1: inqueue[0],
-                                player2: inqueue[1] ,
-                                taskID: task._id,
-                                active: true
-                            });
-                            newMatch.save(function(err){
-                                if(err){
-                                  console.log(err);
-                                  return;
-                                }
-                              });
-                        }
-                    }).skip(random); 
-        
-                })
-        
-            }
-            else if(inqueue.length >=2 && inqueue[1] == req.session.user._id && match == true ){
-                var player1 = inqueue.shift(1);
-                var player2 = inqueue.shift(1);
-                match = false;
-                res.redirect('/game');
-            }
-            else{
-                res.render('game/waitingforplayer', {inqueue: inqueue.length})
-            }
-        
+    if(!globalqueue.includes(req.session.user._id)){
+        if(globalqueue.length>0){
+            //make game with first and this player
+            Task.count().exec(function (err, count){
+                var random = Math.floor(Math.random() * count)
+                Task.findOne({}, function (err, task){
+                    if(!task){
+                      console.log("Could not load any task!!!");
+                    }
+                    else{
+                        var newMatch = new Match({
+                            player1: globalqueue[0],
+                            player2: req.session.user._id,
+                            taskID: task._id,
+                            active: true
+                        });
+                        globalqueue.shift(0);
+                        newMatch.save(function(err){
+                            if(err){
+                              console.log(err);
+                              return;
+                            }
+                            //Redirect to active game pages...
+                            res.redirect('/user/activegames');
+                          });
+                    }
+                }).skip(random); 
+    
+            });
+        }else{  //Is the only one in queue
+            globalqueue.push(req.session.user._id);
+            res.render('home', {
+                infos: [{param: '', msg: "You are now added to the queue, when someone joins your game you will find the game at the 'Active Games' page. Good Luck! ", value: ''}]
+              }) 
+            //redirect to some page with info about that the user is in queue.
         }
-    });
- 
+    }else{
+        res.render('home', {
+            errors: [{param: '', msg: "You are already in the queue, please wait until someone join. You can find your active games at the 'Active Games' page.", value: ''}]
+          }) 
+        //Already in queue just waiting for player
+        //redirect to some page with info about that the user is in queue.
+    }
   };

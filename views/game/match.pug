@@ -20,7 +20,7 @@ block content
                         h2.text-center Help
                 .row.border-bottom
                     .col
-                        p.text-left Return your answer in the #[strong result()] function. When you feel happy with your solution press the green #[em submit solution] button bellow. If you want to abort this game press the red #[em abort game] button bellow. Note that by aborting the game you are losing the game and give your opponent the win.   
+                        p.text-left Return your answer in the #[strong answer(n)] function. When you feel happy with your solution press the green #[em submit solution] button bellow. If you want to abort this game press the red #[em abort game] button bellow. Note that by aborting the game you are losing the game and give your opponent the win.   
                 .row.spacer
                 form#sendcodeform(action='/sendcode' method='POST')
                     input#hiddencodeinput(name='code' type='hidden' value='')

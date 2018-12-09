@@ -11,6 +11,10 @@ router.get('*', function(req, res, next){
     res.locals.user = req.session.user || null;
     next();
 })
+router.post('*', function(req, res, next){
+  res.locals.user = req.session.user || null;
+  next();
+})
 
 //Home route
 router.get('/', home_controller.get);
@@ -22,19 +26,16 @@ router.get('/login', ensureLoggedOut(), user_controller.get);
 router.post('/login', ensureLoggedOut(), user_controller.post);
 router.get('/logout', ensureLoggedIn(), user_controller.logout);
 router.get('/user/home', ensureLoggedIn(), user_controller.history);
+router.get('/user/activegames', ensureLoggedIn(), user_controller.activegames);
 
 //Registration route
-
-
 router.get('/registration', ensureLoggedOut(), registration_controller.get);
 router.post('/registration', ensureLoggedOut(), registration_controller.post);
 
-
 //Game logic
 router.get('/search_game', ensureLoggedIn(), matchmaking_controller.get);
-router.get("/game",ensureLoggedIn(), game_controller.get);
+router.post("/game",ensureLoggedIn(), game_controller.game);
 router.post("/sendcode",ensureLoggedIn(), game_controller.post);
-
 
 router.get('*', function(req,send){
     send.status(404)

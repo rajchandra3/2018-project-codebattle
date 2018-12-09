@@ -2,17 +2,32 @@ const request = require('request');
 const Task = require('../models/task');
 const Match = require('../models/match');
 
-exports.get = function(req, res){
-  //Check if the user is in a match, if so give the description
-  Match.findOne({active: true , $or: [{player1: req.session.user._id},{player2: req.session.user._id}]}, function (err, match){ //This should be randomized
-    if(!match || match.active == false){
-      res.render("home");
-    }
-    else{
-      res.render('game/match',{task_description: match.taskID.description});
-    }
-  }).populate("taskID")
-  };
+exports.game = function(req, res){ //Check if it is first time and if so set time
+  Match.
+    findOne().
+    where({_id: req.body.matchID}).
+    or([{'player1': req.session.user._id}, {'player2': req.session.user._id}]).
+    populate('taskID').
+    populate('player1').
+    populate('player2').
+    exec(function(err, match){
+      if(!match || match.active == false){
+        res.render("home");
+      }
+      else{ //The following if else determines if it is the first time the user enters the IDE for this match
+        if(match.player1._id == req.session.user._id && match.player1starttime == null){        
+          match.player1starttime = Date.now();
+          match.save(function(err,t){if(err){console.log("couldn't update time")}});
+        }else if(match.player2._id == req.session.user._id && match.player2starttime == null){
+          match.player2starttime = Date.now();
+          match.save(function(err,t){if(err){console.log("couldn't update time")}});
+        }
+        res.render('game/match',{task_description: match.taskID.description});
+      }
+    });
+  }
+  
+
 
   exports.post = function(req,res){
     var time = Date.now();
@@ -38,7 +53,7 @@ exports.get = function(req, res){
       }, function (error, response, body){ // message holds any error messages and ok is true if the code was ok or false if it didn't pass
           if(match.player1._id == req.session.user._id){ //If the sess player is player 1
             match.player1solution = jscode; //This probably need some validation
-            match.player1time = time - match.starttime;
+            match.player1time = time - match.player1starttime;
             match.player1correct = body.ok;
 
             //Deactivate the game if player 2 has finished check who is the winner
@@ -47,7 +62,7 @@ exports.get = function(req, res){
             }
           }else{ //The sess player is player 2
             match.player2solution = jscode;
-            match.player2time = time - match.starttime;
+            match.player2time = time - match.player2starttime;
             match.player2correct = body.ok;
 
             //Deactivate the game if player 1 has finished set the winner
@@ -84,7 +99,10 @@ exports.get = function(req, res){
             else if(body.ok == false && body.message == ""){
               message = "You didn't solve the task, better luck next time!";
             }
-            res.render('game/codesubmited',{message: message, totaltime: (time - match.starttime)});
+            //res.render('game/codesubmited',{message: message});
+            res.render('home', {
+              infos: [{param: '', msg: message, value: ''}]
+            }) 
           });
         }
       );

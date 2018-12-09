@@ -5,7 +5,7 @@ require.config({ paths: { 'vs': '/scripts/monaco-editor/min/vs' }});
 				'// Make sure you put your answer is returned! ',
 				'function answer(n){',
 				'\t',
-				'\t return youranswer',
+				'\t ',
 				'}',
 				''
 			].join('\n'),

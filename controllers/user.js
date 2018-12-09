@@ -47,9 +47,6 @@ exports.logout = function(req, res){
 };
 
 
-
-
-
 exports.history = function(req, res){
   Match.
     find().
@@ -80,7 +77,6 @@ exports.history = function(req, res){
         }
 
         if(matches[i].player1._id == req.session.user._id){ //If the user is user1
-
              preview.push({
               title: taskTitle,
               winner: gamewinner,
@@ -105,6 +101,46 @@ exports.history = function(req, res){
       }
       res.render('user/history', {wins: wins, lost: loss,matchhistory: preview});
     });
-
-  
 };
+
+exports.activegames = function(req, res){
+  Match.
+    find().
+    populate('player1').
+    populate('player2').
+    populate('taskID').
+    or([{'player1': req.session.user._id, 'player1solution': null}, {'player2': req.session.user._id, 'player2solution': null}]).
+    where('active').equals(true).
+    sort('-starttime').
+    exec(function(err,matches){ 
+      var games = [];
+      for(var i=0;i<matches.length;i++){
+        var status = "You have not started this game yet, press play to play!"; //default
+        var buttontext = "Play";
+        var opponent = "";
+        if(matches[i].player1._id == req.session.user._id){
+          opponent = matches[i].player2.username
+          if(matches[i].player1starttime != null){
+            status = "Time since start: " + new Date(Date.now() - matches[i].player1starttime).toISOString().slice(11, -1);
+            buttontext = "Continue";
+          }  
+        }
+        else if(matches[i].player2._id == req.session.user._id){
+          opponent = matches[i].player1.username
+          if(matches[i].player2starttime != null){
+            status = "Time since start: " + new Date(Date.now() - matches[i].player2starttime).toISOString().slice(11, -1);
+            buttontext = "Continue";
+          }  
+        }
+        games.push({
+          matchID: matches[i]._id,
+          opponent: opponent,
+          taskTitle: matches[i].taskID.title,
+          status: status,
+          buttontext: buttontext
+        });
+      }
+      res.render('user/games', {matches: games});
+    });
+
+}

@@ -8,37 +8,39 @@ Todo:
     ☐ Fix so that the game page can use the same layout as all other pages, the problem right now is that both layout and the monaco-editor node_module uses the bootstrap javascript file.
     ☐ Auto run the docker program that runs the insecure javascript code from users @critical 
     ☐ Notify the user when both the players have finished their game
-    ☐ Let the user rejoin the game if the game is not finished. This should be the same button as when the user wants to join the queue.
     ☐ Make sure that the docker container has the right privilages.
     ☐ Make sure that the docker container always is up and running, if it crash it should be restarted
     ☐ Validate the users code solution before it is stored in the database to make sure that it doesn't crash the db.
     ☐ Reformat game.js to make it readable 😫
     ☐ Randomize the input to each task and check whether the answer is correct or not depending on the input. 
     ☐ Optimize the search at export.history in user.js
-    ☐ Make use of the flash instead in game.js when showing the response message
 
   Users:
 
-    ☐ Authentication
     ☐ Write test for registration @low 
-    ☐ Fix sessions to logged in users
-
-  View:
-
-    ☐ Header while not logged in
-    ☐ Header while logged in
+    ☐ Add a variable to the user that holds each match is in.
 
   Design:
     ☐ Design Home-page
-    ☐ Design Registration-page
-    ☐ Design Sign in-page
     ☐ Fix the history.pug page... 😴😴
 
   Other:
     ☐ Add envelope config file to use instead of hardcorded addresses, ports, local docker machine ip, etc
     ☐ Fix error handling
+    ☐ Rewrite all mongoose use to follow the query builder
 
 Archive:
+  ✘ Let the user rejoin the game if the game is not finished. This should be the same button as when the user wants to join the queue. @cancelled(18-12-09 18:42) @project(Todo.Game)
+  ✔ Make use of the flash instead in game.js when showing the response message @started(18-12-09 18:43) @done(18-12-09 19:48) @lasted(1h5m50s) @project(Todo.Game)
+  ✔ Remake the matchmaking.js to make it like quizkampen instead.... @critical @started(18-12-09 16:42) @done(18-12-09 18:41) @lasted(1h59m57s) @project(Todo.Game)
+  ✔ Start the timer when a user opens the IDE for the first time. @done(18-12-09 19:48) @project(Todo.Game)
+  ✔ Fix the active games page so that the user can see if he/she submited their code, their time since first started and so on. @done(18-12-09 19:49) @project(Todo.Design)
+  ✔ Authentication @done(18-12-09 16:47) @project(Todo.Users)
+  ✔ Fix sessions to logged in users @done(18-12-09 16:47) @project(Todo.Users)
+  ✔ Header while not logged in @done(18-12-09 16:47) @project(Todo.View)
+  ✔ Header while logged in @done(18-12-09 16:47) @project(Todo.View)
+  ✔ Design Registration-page @done(18-12-09 16:47) @project(Todo.Design)
+  ✔ Design Sign in-page @done(18-12-09 16:47) @project(Todo.Design)
   ✘ Make the template function in the IDE static: @cancelled(18-12-07 18:28) @project(Todo.Game)
     this is not possible
   ✔ Randomize the task for each game @started(18-12-07 17:34) @done(18-12-07 17:56) @lasted(22m30s) @project(Todo.Game)
