@@ -23,15 +23,21 @@ html
         ul.navbar-nav
           if user
             li.nav-item
+              a.nav-link(href='/user/activegames') Active Games
+            li.nav-item
+              a.nav-link(href='/user/home') History
+            li.nav-item
               a.nav-link(href='/logout') Logout
           else
             li.nav-item
               a.nav-link(href='/login') Login
             li.nav-item
               a.nav-link(href='/registration') Register
-    .container-fluid
-      if errors
-        each error, i in errors
-          div(class="alert alert-danger") #{error.msg}
+    .container
+      .container
+        if errors
+          each error, i in errors
+            div.text-center(class="alert alert-danger alert-dismissible")
+              button.close(type='button', data-dismiss='alert') &times;
+              div #{error.msg}
       block content
-    //BootstrapCDN
