@@ -17,8 +17,8 @@ Todo:
 
   Users:
 
-    ☐ Write test for registration @low 
-    ☐ Add a variable to the user that holds each match is in.
+    ✘ Add a variable to the user that holds each match is in. @cancelled(18-12-10 00:58)
+    ☐ Be able to delete a user 
 
   Design:
     ☐ Design Home-page
@@ -29,7 +29,13 @@ Todo:
     ☐ Fix error handling
     ☐ Rewrite all mongoose use to follow the query builder
 
+  Tests:
+    ☐ Write test for the routes
+    ☐ Write test for adding a new task
+
 Archive:
+  ✔ Write test for registration @low @done(18-12-10 00:57) @project(Todo.Users)
+  ✔ Write test for the user @done(18-12-10 00:57) @project(Todo.Tests)
   ✘ Let the user rejoin the game if the game is not finished. This should be the same button as when the user wants to join the queue. @cancelled(18-12-09 18:42) @project(Todo.Game)
   ✔ Make use of the flash instead in game.js when showing the response message @started(18-12-09 18:43) @done(18-12-09 19:48) @lasted(1h5m50s) @project(Todo.Game)
   ✔ Remake the matchmaking.js to make it like quizkampen instead.... @critical @started(18-12-09 16:42) @done(18-12-09 18:41) @lasted(1h59m57s) @project(Todo.Game)
