@@ -15,6 +15,7 @@ Todo:
     ☐ Randomize the input to each task and check whether the answer is correct or not depending on the input. 
     ☐ Optimize the search at export.history in user.js
     ☐ Validate the code on client.
+    ☐ Return some message if the code doesn't terminate or if it takes to long time to finish the task.
 
   Users:
 

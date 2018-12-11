@@ -10,8 +10,8 @@ var newTask = new Task({
     title: "Find the n:th number in the Fibonacci sequence",
     description: "Make a function that returns the n:th number in the fibonacci sequence.",
     difficulty: "easy",
-    input: ["8","21","54"],
-    output: ["21","10946","86267571272"]
+    input: ["8","6","3"],
+    output: ["21","8","2"]
 });
 
 newTask.save(function(err){
