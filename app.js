@@ -3,6 +3,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressValidator = require('express-validator');
+const session = require('express-session');
+
+
 
 // Init app
 const app = express();
@@ -18,9 +21,20 @@ app.set('view engine', 'pug');
 // Set public folder to serve static resources
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Middleware
+//To make the node_module static
+app.use('/scripts', express.static(__dirname + '/node_modules/'));
+
+
 //Express Validator
 app.use(expressValidator());
+
+//Set session
+app.use(session({
+  secret: "Totaly secret key",
+  resave: false,
+  saveUninitialized: false
+}));
+
 
 //Set router
 let routes = require('./routes/routes');
@@ -32,6 +46,7 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
 // Start server
-app.listen(8080, function() {
+var server = app.listen(8080, function() {
   console.log('Server started on port 8080...');
 });
+

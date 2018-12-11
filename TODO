@@ -1,37 +1,82 @@
 
 Todo:
 
+  Game:
+    ☐ Store a toplist of the best solved tasks (in time, in least characters etc) @low 
+    ☐ Set a timer on each game, which stops the game after some time @low 
+    ☐ Fix so that a user can abort a game by pressing the abort button. 
+    ☐ Fix so that the game page can use the same layout as all other pages, the problem right now is that both layout and the monaco-editor node_module uses the bootstrap javascript file.
+    ☐ Auto run the docker program that runs the insecure javascript code from users @critical 
+    ☐ Notify the user when both the players have finished their game
+    ☐ Make sure that the docker container has the right privilages.
+    ☐ Make sure that the docker container always is up and running, if it crash it should be restarted
+    ☐ Validate the users code solution before it is stored in the database to make sure that it doesn't crash the db.
+    ☐ Reformat game.js to make it readable 😫
+    ☐ Randomize the input to each task and check whether the answer is correct or not depending on the input. 
+    ☐ Optimize the search at export.history in user.js
+    ☐ Validate the code on client.
+
   Users:
 
-    ☐ Authentication
-    ☐ Write test for registration @low 
-    ☐ Encrypt/hash user password
-    ☐ Seperate view into subfolders
-    ☐ Fix sessions to logged in users
-    ☐ Fix so that users doesn't need use email when register
-
-  View:
-
-    ☐ Header
+    ☐ Be able to delete a user 
 
   Design:
     ☐ Design Home-page
-    ☐ Design Registration-page
-    ☐ Design Sign in-page
+    ☐ Fix the history.pug page... 😴😴
+    ☐ History page should be in a list
 
   Other:
-    ☐ Add config file to use instead of hardcorded addresses, ports etc
+    ☐ Add envelope config file to use instead of hardcorded addresses, ports, local docker machine ip, etc
     ☐ Fix error handling
+    ☐ Rewrite all mongoose use to follow the query builder
 
-  Errorhandling:
-    ✔ Fix a 404 page @done(18-11-20 12:27)
-    
+  Tests:
+    ☐ Write test for the routes
+    ☐ Write test for adding a new task
+    ☐ Test that login is correct (session user)
 
 Archive:
+  ✘ Add a variable to the user that holds each match is in. @cancelled(18-12-10 00:58) @project(Todo.Users)
+  ✔ Write test for registration @low @done(18-12-10 00:57) @project(Todo.Users)
+  ✔ Write test for the user @done(18-12-10 00:57) @project(Todo.Tests)
+  ✘ Let the user rejoin the game if the game is not finished. This should be the same button as when the user wants to join the queue. @cancelled(18-12-09 18:42) @project(Todo.Game)
+  ✔ Make use of the flash instead in game.js when showing the response message @started(18-12-09 18:43) @done(18-12-09 19:48) @lasted(1h5m50s) @project(Todo.Game)
+  ✔ Remake the matchmaking.js to make it like quizkampen instead.... @critical @started(18-12-09 16:42) @done(18-12-09 18:41) @lasted(1h59m57s) @project(Todo.Game)
+  ✔ Start the timer when a user opens the IDE for the first time. @done(18-12-09 19:48) @project(Todo.Game)
+  ✔ Fix the active games page so that the user can see if he/she submited their code, their time since first started and so on. @done(18-12-09 19:49) @project(Todo.Design)
+  ✔ Authentication @done(18-12-09 16:47) @project(Todo.Users)
+  ✔ Fix sessions to logged in users @done(18-12-09 16:47) @project(Todo.Users)
+  ✔ Header while not logged in @done(18-12-09 16:47) @project(Todo.View)
+  ✔ Header while logged in @done(18-12-09 16:47) @project(Todo.View)
+  ✔ Design Registration-page @done(18-12-09 16:47) @project(Todo.Design)
+  ✔ Design Sign in-page @done(18-12-09 16:47) @project(Todo.Design)
+  ✘ Make the template function in the IDE static: @cancelled(18-12-07 18:28) @project(Todo.Game)
+    this is not possible
+  ✔ Randomize the task for each game @started(18-12-07 17:34) @done(18-12-07 17:56) @lasted(22m30s) @project(Todo.Game)
+  ✔ Rewrite the matchmaking.js so it checks if the user is in a match or not already. @high @done(18-12-07 18:25) @project(Todo.Game)
+    This was solved by asking the database, should probably be stored in a session instead....
+  ✔ Make a js file that has some task that always should be stored in the db @started(18-12-07 16:05) @done(18-12-07 17:33) @lasted(1h28m43s) @project(Todo.Game)
+  ✔ Store the code from the IDE in the database with the respective user and task. @done(18-12-06 21:08) @project(Todo.Game)
+    To store the code use the getValue() function
+  ✔ Set up a matchmaking system which pairs two users into a game @done(18-12-06 16:52) @project(Todo.Game)
+  ✔ Make a user page where user can find their previous matches @started(18-12-07 11:13) @done(18-12-07 14:37) @lasted(3h24m16s) @project(Todo.Game)
+  ✔ When the user submits the code must be evalutated and checked if the answer is correct. Then it should be stored in the match db, Both the solution and answer @started(18-12-06 16:59) @done(18-12-06 20:35) @lasted(3h36m59s) @project(Todo.Game)
+  ✔ Make so that whenever a code that is evaluated to some failure just print the problem and don't return the whole website. @started(18-12-06 18:14) @done(18-12-06 18:23) @lasted(9m45s) @project(Todo.Game)
+  ✔ Save the time the user submited the code in the db @started(18-12-06 18:25) @done(18-12-06 18:29) @lasted(4m38s) @project(Todo.Game)
+  ✔ Figure out how the run the code from the docker nodejs server @started(18-12-01 15:00) @done(18-12-01 19:17) @project(Todo.Game)
+  ✔ Make schema for tasks!!!!! Make some tasks that is stored in the database (may be with different difficulty), should be loaded under the TASK header, remeber to set a ID to all tasks so that tasks can be paird with games @started(18-11-23 18:40) @done(18-11-23 19:55) @lasted(1h15m48s) @project(Todo.Game)
+  ✔ Examine how to use docker to only run a piece of code and have the result @started(18-12-01 14:40) @done(18-12-01 18:09)  @project(Todo.Game)
+    Just use eval for now
+  ✔ Add a page for a actual game, with some IDE and design with task, submit and help @started(18-11-22 19:10) @done(18-11-22 23:09) @lasted(3h59m25s) @project(Todo.Game)
+  ✔ Encrypt/hash user password @done(18-11-22 19:09) @project(Todo.Users)
+  ✔ Seperate view into subfolders @done(18-11-22 19:09) @project(Todo.Users)
+  ✔ Fix so that users doesn't need use email when register @done(18-11-22 19:09) @project(Todo.Users)
+  ✔ Design FAQ page @done(18-11-22 19:09) @project(Todo.Design)
+  ✔ Fix a 404 page @done(18-11-20 12:27) @project(Todo.Errorhandling)
   ✔ Login view @done(18-11-20 12:07) @project(Todo.Users)
   ✔ Be able to add users to the db @done(18-11-20 12:07) @project(Todo.Users)
   ✔ Be able to login as a registered user @done(18-11-20 12:07) @project(Todo.Users)
   ✔ Register view @started(18-11-14 17:35) @done(18-11-14 20:37) @lasted(3h2m26s) @project(Todo.Users)
   ✔ User model @high @done(18-11-14 20:50) @project(Todo.Users)
   ✔ Set up model for users @started(18-11-14 17:21) @done(18-11-14 20:37) @lasted(3h16m21s) @project(Todo.Users)
-✔ Add index/home page @done(18-11-14 17:10)
+  ✔ Add index/home page @done(18-11-14 17:10)

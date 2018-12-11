@@ -1,11 +1,15 @@
 extends ../layout
 
 block content
-  form#registration-form(action='/login' method='POST')
-    .form-group
-      <label for="regUsername">Username</label>
-      <input type="text" class="form-control" id="regUsername" name="username" placeholder="Enter Username">
-    .form-group
-      <label for="regPassword">Password</label>
-      <input type="password" class="form-control" id="regPassword" name="password"  placeholder="Password">
-    <button type="submit" class="btn btn-primary">Log in</button>
+  .conatiner.d-flex.align-content-center.container-login
+    .col
+      h1.text-center Login
+      .container.row
+        form.col#registration-form(action='/login' method='POST')
+          .form-group
+            <label for="regUsername">Username</label>
+            <input type="text" class="form-control" id="regUsername" name="username" placeholder="Enter Username">
+          .form-group
+            <label for="regPassword">Password</label>
+            <input type="password" class="form-control" id="regPassword" name="password"  placeholder="Password">
+          <button type="submit" class="btn btn-primary">Log in</button>

@@ -11,48 +11,58 @@ exports.post = function(req,res){
   const email = req.body.email;
   const password = req.body.password;
 
-
-
   //Validation
   req.checkBody('username', 'Username is required').notEmpty();
-  //req.checkBody('username', 'Username already exists').isUsernameAvailable();
   if(email) req.checkBody('email', 'Email is not valid').isEmail();
   req.checkBody('password', 'Password is required').notEmpty();
-  let errors = req.validationErrors();
-
-  if(errors){
-    for (var i in errors){
-      console.log(errors[i].msg);
-    }
-
-    res.render('user/registration', {
-      errors:errors
-    });
+  if(password) req.checkBody('password', 'Passwords doesn\'t match').equals(req.body.password2);
+  let errors = [];
+  if (req.validationErrors()){
+    errors = req.validationErrors();
   }
-  else{
-    var newUser = new User({
-        username:username,
-        email:email,
-        password:password
-    });
-
-    bcrypt.hash(newUser.password, 10, function(err, hash){
-      if(err){
-        console.log(err);
-        return;
+  
+  User.findOne({username: req.body.username}, function (err, user){
+    //Checks if username already exists
+    if(user){
+      errors.push({param: '', msg: 'Username already exists', value: ''});
+    }
+    //Invalid input
+    if(errors.length > 0){
+      for (var i in errors){
+        console.log(errors[i].msg);
       }
-      newUser.password = hash;
-      newUser.save(function(err){
+  
+      res.render('user/registration', {
+        errors:errors
+      });
+    }
+    //Valid input
+    else{
+      var newUser = new User({
+          username:username,
+          email:email,
+          password:password
+      });
+  
+      bcrypt.hash(newUser.password, 10, function(err, hash){
         if(err){
           console.log(err);
           return;
         }
-        else{
-          console.log("User added");
-          res.render('user/welcomeuser');
-        }
+        newUser.password = hash;
+        newUser.save(function(err){
+          if(err){
+            console.log(err);
+            return;
+          }
+          else{
+            console.log("User added");
+            res.render('user/welcomeuser');
+          }
+        });
       });
-    });
-  }
+    }
+  });
+  
 }
 

@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    h1 These are your current games.
+    each match,index in matches
+        .card
+            .card-body
+                h5.card-title #{match.taskTitle} 
+                p.card-text 
+                | Opponent: #{match.opponent}
+                br
+                | #{match.status}
+                form(action="/game" method="POST" style="float:right")
+                    input(type="hidden" name="matchID" value=match.matchID)
+                    input.btn.btn-success(type="submit" value=match.buttontext)

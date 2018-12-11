@@ -3,4 +3,7 @@ extends layout
 block content
   .container
     h1.text-center Welcome to CodeBattle
-    p The website is under construction...
+    if user
+      a.btn.btn-primary(href="search_game" role=("button")) Find a random player to play with
+    else
+      p Please register or log in to play! 
