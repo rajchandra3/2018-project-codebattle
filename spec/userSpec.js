@@ -45,7 +45,8 @@ describe("",function(){
                 password: 'testpassword'
             }
           }, function(error, response, body){
-            expect(response.statusCode).toEqual(200);
+            //expect(response.session.user).toBe(true);
+            expect(response.statusCode).toEqual(302);
             done();
           });
     }); 

@@ -24,6 +24,7 @@ block content
                 .row.spacer
                 form#sendcodeform(action='/sendcode' method='POST')
                     input#hiddencodeinput(name='code' type='hidden' value='')
+                    input(name='matchID' type='hidden' value=matchID)
                     .row.justify-content-end
                         .col
                         
