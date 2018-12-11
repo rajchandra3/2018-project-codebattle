@@ -14,22 +14,31 @@ Todo:
     ☐ Reformat game.js to make it readable 😫
     ☐ Randomize the input to each task and check whether the answer is correct or not depending on the input. 
     ☐ Optimize the search at export.history in user.js
+    ☐ Validate the code on client.
 
   Users:
 
-    ☐ Write test for registration @low 
-    ☐ Add a variable to the user that holds each match is in.
+    ☐ Be able to delete a user 
 
   Design:
     ☐ Design Home-page
     ☐ Fix the history.pug page... 😴😴
+    ☐ History page should be in a list
 
   Other:
     ☐ Add envelope config file to use instead of hardcorded addresses, ports, local docker machine ip, etc
     ☐ Fix error handling
     ☐ Rewrite all mongoose use to follow the query builder
 
+  Tests:
+    ☐ Write test for the routes
+    ☐ Write test for adding a new task
+    ☐ Test that login is correct (session user)
+
 Archive:
+  ✘ Add a variable to the user that holds each match is in. @cancelled(18-12-10 00:58) @project(Todo.Users)
+  ✔ Write test for registration @low @done(18-12-10 00:57) @project(Todo.Users)
+  ✔ Write test for the user @done(18-12-10 00:57) @project(Todo.Tests)
   ✘ Let the user rejoin the game if the game is not finished. This should be the same button as when the user wants to join the queue. @cancelled(18-12-09 18:42) @project(Todo.Game)
   ✔ Make use of the flash instead in game.js when showing the response message @started(18-12-09 18:43) @done(18-12-09 19:48) @lasted(1h5m50s) @project(Todo.Game)
   ✔ Remake the matchmaking.js to make it like quizkampen instead.... @critical @started(18-12-09 16:42) @done(18-12-09 18:41) @lasted(1h59m57s) @project(Todo.Game)

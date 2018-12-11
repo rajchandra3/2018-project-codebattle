@@ -46,6 +46,7 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
 // Start server
-app.listen(8080, function() {
+var server = app.listen(8080, function() {
   console.log('Server started on port 8080...');
 });
+

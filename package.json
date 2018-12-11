@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app ",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jasmine",
     "docker-build-run": "docker build -t codeenv code_environment/. && docker run -d -p 4000:80 codeenv",
     "build-tasks": "node ./scripts/db-init"
   },
