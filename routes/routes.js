@@ -25,7 +25,7 @@ router.get('/faq',home_controller.faq)
 router.get('/login', ensureLoggedOut(), user_controller.get);
 router.post('/login', ensureLoggedOut(), user_controller.post);
 router.get('/logout', ensureLoggedIn(), user_controller.logout);
-router.get('/user/home', ensureLoggedIn(), user_controller.history);
+router.get('/user/history', ensureLoggedIn(), user_controller.history);
 router.get('/user/activegames', ensureLoggedIn(), user_controller.activegames);
 
 //Registration route
