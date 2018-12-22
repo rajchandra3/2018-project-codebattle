@@ -59,7 +59,7 @@ exports.game = function(req, res){ //Check if it is first time and if so set tim
             output: match.taskID.output
           }
         }, function (error, response, body){ // message holds any error messages and ok is true if the code was ok or false if it didn't pass
-          
+            console.log(body)
             if(match.player1._id == req.session.user._id){ //If the sess player is player 1
               match.player1solution = jscode; //This probably need some validation
               match.player1time = time - match.player1starttime;

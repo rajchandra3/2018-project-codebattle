@@ -7,6 +7,7 @@
     "start": "node app ",
     "test": "jasmine",
     "docker-build-run": "docker build -t codeenv code_environment/. && docker run -d -p 4000:80 codeenv",
+    "docker-stop-remove": "docker stop $(docker ps -aq) && docker rm $(docker ps -aq)",
     "build-tasks": "node ./scripts/db-init"
   },
   "repository": {
