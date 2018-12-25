@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    .row
+        h1 Hi #{user.username}
+    .row
+        .col-8
+            form(action="update" method="POST" enctype="multipart/form-data")
+                .form-group
+                    label(for="usernameInput") Username
+                    input(type="text" class="form-control" id="usernameInput" placeholder=user.username name="username")
+                .form-group
+                    label(for="emailInput") Email
+                    input(type="email" id="emailInput" placeholer=user.email name="email")
+                .form-group
+                    label(for="pictureInput") Picture
+                    input(type="file" class="form-control-file" id="pictureInput" name="picture")
+                .form-group
+                    labl(for="passwordInput") Change password
+                    input(type="password" class="form-control" id="passwordInput" name="password")
+                .form-group
+                    input(type="submit" value="Update")

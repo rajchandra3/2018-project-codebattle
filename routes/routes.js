@@ -1,11 +1,31 @@
 const express = require('express');
 const router = express.Router();
 
+
+
 const home_controller = require('../controllers/home');
 const registration_controller = require('../controllers/registration');
 const user_controller = require('../controllers/user');
 const game_controller = require('../controllers/game');
 const matchmaking_controller = require('../controllers/matchmaking');
+
+const picFilter = function(req, file, cb){
+  if(file.mimetype == 'image/jpeg' || file.mimetype == 'image/png'){
+    cb(null,true)
+  }
+  else{
+    cb(null,false)
+  }
+}
+
+const multer = require('multer');
+const upload = multer({dest: 'uploads/', fileFilter: picFilter, limits: {
+  fileSize: 1024 * 1024 * 10
+}}); 
+
+
+
+
 //Pre route actions
 router.get('*', function(req, res, next){
     res.locals.user = req.session.user || null;
@@ -27,6 +47,8 @@ router.post('/login', ensureLoggedOut(), user_controller.post);
 router.get('/logout', ensureLoggedIn(), user_controller.logout);
 router.get('/user/history', ensureLoggedIn(), user_controller.history);
 router.get('/user/activegames', ensureLoggedIn(), user_controller.activegames);
+router.get('/user/profile', ensureLoggedIn(), user_controller.profile);
+router.post('/user/update', ensureLoggedIn(), upload.single('picture'),  user_controller.update);
 
 //Registration route
 router.get('/registration', ensureLoggedOut(), registration_controller.get);

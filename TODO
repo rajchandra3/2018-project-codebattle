@@ -18,7 +18,7 @@ Todo:
     ☐ Use sandbox eval instead of just eval @critical 
 
   Users:
-
+    ☐ There should be a user profile page where you can update your password, change profile picutre and so on. @started(18-12-25 18:26)
     ☐ Be able to delete a user 
     ☐ Add profile picture
 

@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const Match = require('../models/match');
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'}); 
 
 exports.get = function(req, res){
   res.render('user/login');
@@ -142,4 +144,13 @@ exports.activegames = function(req, res){
       res.render('user/games', {matches: games});
     });
 
+}
+
+exports.profile = function(req, res){
+  res.render('user/profile',{user: req.session.user});
+}
+
+exports.update = function(req, res){
+  console.log(req.file);
+  res.render('user/profile',{user: req.session.user});
 }
